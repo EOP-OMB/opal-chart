@@ -4,6 +4,13 @@ metadata:
   name: opal-db
   namespace: {{ .Values.namespace | quote }}
 spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - node-role.kubernetes.io/control-plane
+                operator: DoesNotExist
   replicas: 1
   selector:
     matchLabels:

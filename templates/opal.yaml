@@ -4,13 +4,6 @@ metadata:
   name: opal
   namespace: {{ .Values.namespace | quote }}
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: node-role.kubernetes.io/control-plane
-                operator: DoesNotExist
   replicas: 1
   selector:
     matchLabels:
@@ -20,6 +13,13 @@ spec:
       labels:
         component: opal
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-role.kubernetes.io/control-plane
+                    operator: DoesNotExist
       containers:
       - env:
         - name: ENVIRONMENT

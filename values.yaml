@@ -1,14 +1,15 @@
 namespace: opal
-env: test
-hostname: opal.cs4p.net
-tls_secret: opal-tls-secret
+env: dev
+hostname: opal.domain.com
+tls_secret: '**secret name for yout TLS certificate**'
+version: 2.0.4
 repo:
-    webapp: cs4p
-    db: cs4p
+    webapp: ghcr.com
+    db: ghcr.com
 secret:
-  postgres_opal_password: use_a_strong_password
-  postgres_password: use_a_strong_password
+  postgres_opal_password: use_a_secure_password
+  postgres_password: use_a_secure_password
 proxy:
-  use_proxy: "False"
-  http_proxy: ""
-  https_proxy: ""
+  use_proxy: "True"
+  http_proxy: "proxy.domain.com:8888"
+  https_proxy: "proxy.domain.com:8888"

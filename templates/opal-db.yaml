@@ -36,7 +36,7 @@ spec:
             secretKeyRef:
               key: POSTGRES_OPAL_PASSWORD
               name: opal-passwords
-        image: {{ .Values.repo.db }}/opal-db
+        image: {{ .Values.repo.db }}/opal-db:{{ .Values.version }}
         imagePullPolicy: Always
         name: opal-db
         ports:

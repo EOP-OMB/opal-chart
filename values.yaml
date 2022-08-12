@@ -2,7 +2,7 @@ namespace: opal
 env: dev
 hostname: opal.domain.com
 tls_secret: '**secret name for yout TLS certificate**'
-version: 2.0.4
+version: 2.0.5
 repo:
     webapp: ghcr.com
     db: ghcr.com

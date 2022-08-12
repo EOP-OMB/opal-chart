@@ -37,8 +37,14 @@ spec:
         - name: SSL_ACTIVE
           value: "True"
         - name: ENABLE_SAML
-          value: "True"
-        - name: HTTP_PROXY
+          value: '{{ .Values.saml.ENABLE_SAML }}'
+        - name: SAML_HTTPS
+          value: '{{ .Values.saml.SAML_HTTPS }}'
+        - name: SAML_HTTP_HOST
+          value: '{{ .Values.saml.SAML_HTTP_HOST }}'
+        - name: SAML_SERVER_PORT
+          value: '{{ .Values.saml.SAML_SERVER_PORT }}'
+        - name: HTTP_PROXY 
           value: {{ .Values.proxy.http_proxy }}
         - name: HTTPS_PROXY
           value: {{ .Values.proxy.https_proxy }}
